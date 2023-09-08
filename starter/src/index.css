@@ -106,3 +106,8 @@ button:focus {
 button svg {
   margin-right: 5px;
 }
+
+.restart {
+  display: flex;
+  justify-content: center;
+}

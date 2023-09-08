@@ -56,12 +56,20 @@ export default function App() {
 		}
 	};
 
+	const handleRestartButtonClick = () => {
+		setShowScore(false);
+		setScore(0);
+		setCurrentQuestion(0);
+	};
+
 	return (
 		<div className='app'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
 			{showScore ? (
-				<div className='score-section'>You scored {score} out of {questions.length}</div>
+				<div className='score-section'>You scored {score} out of {questions.length}
+					<button className='restart' onClick={handleRestartButtonClick}>Restart</button>
+				</div>
 			) : (
 				<>
 					<div className='question-section'>
@@ -74,10 +82,10 @@ export default function App() {
 						{questions[currentQuestion].answerOptions.map((answerOption) => (
 							<button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 						))}
-
 					</div>
 				</>
 			)}
 		</div>
+
 	);
 };
